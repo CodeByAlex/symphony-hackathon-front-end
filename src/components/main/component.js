@@ -8,10 +8,10 @@ export default class Main extends React.Component {
     ALL_CATEGORY = 'All';
 
     state = {
-        chosenCategory: null,
+        chosenCategory: 'ALL',
         data: [],
         categories: [],
-        filteredData: []
+        filteredData: [],
     };
 
     componentWillMount() {
@@ -20,7 +20,7 @@ export default class Main extends React.Component {
             const dataList = [ALL_CATEGORY].concat(response.data);
             this.setState({ data: dataList });
             const filteredData = this.state.data;
-            this.setState({filteredData });
+            this.setState({ filteredData });
         });
         getAppCategories().then((response) => {
             this.setState({ categories: response.data });
@@ -30,12 +30,11 @@ export default class Main extends React.Component {
 
     filterByCategory(chosenCategory){
         if(chosenCategory.toUpperCase() === ALL_CATEGORY.toUpperCase()){
-            console.log("ALL", chosenCategory)
             return this.state.data;
-        }else{
-            const filteredData = [...this.state.data].filter((el) => el.tags.includes(chosenCategory));
-            return filteredData;
         }
+        const filteredData = [...this.state.data].filter((el) => el.tags.includes(chosenCategory));
+        return filteredData;
+
     }
 
     setChosenCategory(chosenCategory) {
@@ -48,7 +47,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className='app-container'>
-                <Navbar setChosenCategory={this.setChosenCategory.bind(this)} categories={this.state.categories} />
+                <Navbar setChosenCategory={this.setChosenCategory.bind(this)} categories={this.state.categories} chosenCategory={this.state.chosenCategory}/>
                 <Cards data={this.state.filteredData} />
             </div>
         );
