@@ -131,8 +131,19 @@ const config = {
     devServer: {
         contentBase: resolve(__dirname, 'dist'),
         port: 4000,
+        disableHostCheck: true,
         headers: {
             'Access-Control-Allow-Origin': '*',
+        },
+        proxy: {
+            '/api': {
+                // target: 'https://internal-multiassettool-server-alb-65394220.us-east-1.elb.amazonaws.com/',
+                target: 'http://10.123.1.24:9000/v1/previews',
+                secure: false,
+                changeOrigin: true,
+                pathRewrite: { '^/api': '' },
+
+            },
         },
     },
 };

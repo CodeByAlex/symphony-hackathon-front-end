@@ -3,11 +3,12 @@
     {
       "type": "sandbox",
       "id": "hello",
-      "name": "Hello World",
-      "blurb": "This is a hello world app with a few example extension API invocations!",
-      "publisher": "Symphony",
+      "name": "Newsie",
+      "blurb": "Enterprise Knowledge Sharing Platform",
+      "publisher": "T. Rowe Price",
       "url": "https://localhost:4000/index.html",
-      "domain": "localhost"
+      "domain": "localhost",
+      "iconUrl": "https://localhost:4000/assets/news_icon.png"
     }
   ]
 }

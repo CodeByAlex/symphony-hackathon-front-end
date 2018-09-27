@@ -1,44 +1,38 @@
 import React from 'react';
 import { getAppData, getAppCategories } from '../services/service';
 import Navbar from 'Components/navbar/component';
+import { Cards } from 'Components/cards/component';
+import axios from 'axios';
 
 export default class Main extends React.Component {
     state = {
         chosenCategory: null,
         data: [],
-        categories: []
+        categories: [],
     };
 
     componentWillMount() {
-        const data = getAppData().data;
-        const categories = getAppCategories();
-    
-        this.setState({ data, categories }) 
-    };
-    
-    setChosenCategory(chosenCategory) {
-        this.setState({chosenCategory}, () => {
-            const data = [...this.state.data].filter((el) => el.tags.includes(chosenCategory));
-            this.setState({ data: filteredData })
+        axios.get('https://localhost:4000/api').then((response) => {
+            this.setState({ data: response.data });
         });
-    };
-    
+        const categories = getAppCategories();
+
+        this.setState({ categories });
+    }
+
+    setChosenCategory(chosenCategory) {
+        this.setState({ chosenCategory }, () => {
+            const filteredData = [...this.state.data].filter((el) => el.tags.includes(chosenCategory));
+            this.setState({ data: filteredData });
+        });
+    }
+
     render() {
-        return (        
+        return (
             <div className='app-container'>
                 <Navbar setChosenCategory={this.setChosenCategory.bind(this)} categories={this.state.categories} />
-                {
-                    this.state.data.map((el) => {
-                        return (
-                            <div className='card'>
-                                <p>{this.state.chosenCategory}</p>
-                                <img src={el.image} />
-                                <h3>{el.title}</h3>
-                            </div>
-                        );
-                    })
-                }
+                <Cards data={this.state.data} />
             </div>
         );
     }
-};
+}
