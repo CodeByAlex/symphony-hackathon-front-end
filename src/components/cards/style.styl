@@ -13,10 +13,12 @@
     margin-right: 30px;
     margin-bottom: 30px;
     border-radius: 3px;
-    height: 350px;
+    height: 500px;
+    overflow: hidden;
     border-radius: 3px;
     background: #fff;
     box-shadow: 0px 0px 6px #0000001a;
+    position: relative;
 
     &:last-of-type {
         margin-right: 0
@@ -36,9 +38,52 @@
 }
 
 .card-content {
-    padding: 15px;    
+    padding: 20px;
+    padding-top: 30px;
+
+    p {
+        font-size: 15px;
+        line-height: 23px;
+        color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    }
 }
 
 .card-title {
-    text-transform: uppercase;    
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #828282;
+    transition: color 100ms ease
+
+    &:hover {
+        color: #26a6f3;    
+    }
+}
+
+.card-tags {
+    padding: 20px 20px 0;
+    display: flex;
+}
+
+span.card-tag {
+    margin-right: 10px;
+    padding: 3px 10px;
+    background: red;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+span.card-date {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: #444;
 }

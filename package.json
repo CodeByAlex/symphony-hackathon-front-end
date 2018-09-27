@@ -31,6 +31,7 @@
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^4.5.2",
     "create-react-app": "^1.5.2",
+    "date-fns": "^1.29.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-import-resolver-babel-module-alias": "^1.5.1",
