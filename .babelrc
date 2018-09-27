@@ -12,7 +12,8 @@
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-          "Components": "components"
+          "Components": "components",
+          "Assets": "assets"
       }
     }]
   ]

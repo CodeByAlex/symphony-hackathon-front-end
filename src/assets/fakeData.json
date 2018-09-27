@@ -1,0 +1,39 @@
+{
+    "data": [
+        {
+            "id": "xxx",
+            "image": "https://via.placeholder.com/400x300",
+            "title": "Laboris nisi fugiat qui.",
+            "summary": "Amet minim in nulla sit eu sunt excepteur in proident Lorem aliqua sit ut.",
+            "categories": ["cat1", "cat2"]
+        },
+        {
+            "id": "xxx",
+            "image": "https://via.placeholder.com/400x300",
+            "title": "In dolor exercitation occaecat quis incididunt elit culpa voluptate sunt esse et dolor.",
+            "summary": "Amet minim in nulla sit eu sunt excepteur in proident Lorem aliqua sit ut.",
+            "categories": ["cat1", "cat3"]
+        },
+        {
+            "id": "xxx",
+            "image": "https://via.placeholder.com/400x300",
+            "title": "Laboris nisi fugiat qui.",
+            "summary": "Amet minim in nulla sit eu sunt excepteur in proident Lorem aliqua sit ut.",
+            "categories": ["cat4", "cat5"]
+        },
+        {
+            "id": "xxx",
+            "image": "https://via.placeholder.com/400x300",
+            "title": "Laboris nisi fugiat qui.",
+            "summary": "Amet minim in nulla sit eu sunt excepteur in proident Lorem aliqua sit ut.",
+            "categories": ["cat1", "cat2"]
+        },
+        {
+            "id": "xxx",
+            "image": "https://via.placeholder.com/400x300",
+            "title": "Laboris nisi fugiat qui.",
+            "summary": "Amet minim in nulla sit eu sunt excepteur in proident Lorem aliqua sit ut.",
+            "categories": ["cat1", "cat2"]
+        }
+    ]
+}

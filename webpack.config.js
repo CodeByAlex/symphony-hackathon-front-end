@@ -10,11 +10,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
 
-    entry: {
-        controller: resolve(__dirname, './src/javascript/controller.js'),
-        app: resolve(__dirname, './src/index.js'),
-
-    },
+    entry: [
+        resolve(__dirname, './src/index.js'),
+        resolve(__dirname, './src/javascript/controller.js'),
+    ],
     output: {
         path: resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
@@ -25,6 +24,7 @@ const config = {
         modules: ['src', 'node_modules'],
         alias: {
             Components: 'src/components',
+            Assets: 'src/assets',
         },
     },
 
