@@ -6,31 +6,31 @@ import axios from 'axios';
 
 export default class Main extends React.Component {
     state = {
-        chosenCategory: null,
+        chosenCategory: 'ALL',
         data: [],
         categories: [],
-        filteredData: []
+        filteredData: [],
     };
 
     componentWillMount() {
         axios.get('https://localhost:4000/api').then((response) => {
             this.setState({ data: response.data });
             const filteredData = this.state.data;
-            this.setState({filteredData });
+            this.setState({ filteredData });
         });
         const categories = getAppCategories();
         this.setState({ categories });
     }
 
-    filterByCategory(chosenCategory){
+    filterByCategory(chosenCategory) {
         const ALL_CATEGORY = 'all';
-        if(chosenCategory.toUpperCase() === ALL_CATEGORY.toUpperCase()){
-            console.log("ALL", chosenCategory)
+        if (chosenCategory.toUpperCase() === ALL_CATEGORY.toUpperCase()) {
+            console.log('ALL', chosenCategory);
             return this.state.data;
-        }else{
-            const filteredData = [...this.state.data].filter((el) => el.tags.includes(chosenCategory));
-            return filteredData;
         }
+        const filteredData = [...this.state.data].filter((el) => el.tags.includes(chosenCategory));
+        return filteredData;
+
     }
 
     setChosenCategory(chosenCategory) {
@@ -43,7 +43,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className='app-container'>
-                <Navbar setChosenCategory={this.setChosenCategory.bind(this)} categories={this.state.categories} />
+                <Navbar setChosenCategory={this.setChosenCategory.bind(this)} categories={this.state.categories} chosenCategory={this.state.chosenCategory}/>
                 <Cards data={this.state.filteredData} />
             </div>
         );

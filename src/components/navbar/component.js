@@ -5,16 +5,18 @@ export default class Navbar extends React.Component {
     }
 
     render() {
-        if(this.props.categories){
+        if (this.props.categories) {
             return (
                 <header>
                     <nav>
                         {
                             this.props.categories.map((cat) => {
+                                console.log(cat, this.props.chosenCategory);
                                 return (
-                                    <div tabIndex={-1} role='button' 
-                                        className='cat-link' 
-                                        onClick={()=>{ this.props.setChosenCategory(cat) }}>
+                                    <div
+                                        tabIndex={-1} role='button'
+                                        className={`${cat === this.props.chosenCategory.toLowerCase() ? 'selected cat-link' : 'cat-link'}` }
+                                        onClick={()=>{ this.props.setChosenCategory(cat); }}>
                                         <span>{cat}</span>
                                     </div>
                                 );
@@ -23,6 +25,6 @@ export default class Navbar extends React.Component {
                     </nav>
                 </header>
             );
-        }        
+        }
     }
 }
