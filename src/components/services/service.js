@@ -5,5 +5,5 @@ export const getAppData = () => {
 };
 
 export const getAppCategories = () => {
-    return ['all', 'cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6'];
+    return axios.get('https://localhost:4000/tags');
 };

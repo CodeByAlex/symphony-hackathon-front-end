@@ -138,10 +138,17 @@ const config = {
         proxy: {
             '/api': {
                 // target: 'https://internal-multiassettool-server-alb-65394220.us-east-1.elb.amazonaws.com/',
-                target: 'http://10.123.1.24:5000/v1/previews',
+                target: 'https://polar-woodland-43568.herokuapp.com/v1/previews',
                 secure: false,
                 changeOrigin: true,
                 pathRewrite: { '^/api': '' },
+            },
+            '/tags': {
+                // target: 'https://internal-multiassettool-server-alb-65394220.us-east-1.elb.amazonaws.com/',
+                target: 'https://polar-woodland-43568.herokuapp.com/v1/previews/tags',
+                secure: false,
+                changeOrigin: true,
+                pathRewrite: { '^/tags': '' },
 
             },
         },

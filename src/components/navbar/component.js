@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './style.styl';
 export default class Navbar extends React.Component {
     componentWillMount() {
+        console.log('cat:', this.props.categories)
     }
 
     render() {

@@ -5,6 +5,8 @@ import { Cards } from 'Components/cards/component';
 import axios from 'axios';
 
 export default class Main extends React.Component {
+    ALL_CATEGORY = 'All';
+
     state = {
         chosenCategory: null,
         data: [],
@@ -13,17 +15,20 @@ export default class Main extends React.Component {
     };
 
     componentWillMount() {
-        axios.get('https://localhost:4000/api').then((response) => {
-            this.setState({ data: response.data });
+        getAppData().then((response) => {
+            console.log(response)
+            const dataList = [ALL_CATEGORY].concat(response.data);
+            this.setState({ data: dataList });
             const filteredData = this.state.data;
             this.setState({filteredData });
         });
-        const categories = getAppCategories();
-        this.setState({ categories });
+        getAppCategories().then((response) => {
+            this.setState({ categories: response.data });
+        })
+        
     }
 
     filterByCategory(chosenCategory){
-        const ALL_CATEGORY = 'all';
         if(chosenCategory.toUpperCase() === ALL_CATEGORY.toUpperCase()){
             console.log("ALL", chosenCategory)
             return this.state.data;
